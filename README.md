@@ -8,6 +8,9 @@ public class MakeSnail {
 		printSnail(makeSnail(5));
 		printSnail(drawSnail(6));
 		printSnail(makeSnail(7));
+		printSnail(drawSnail(8));
+		printSnail(makeSnail(9));
+		printSnail(drawSnail(10));
 	}
 
 	final static int UP = 0;
@@ -41,7 +44,7 @@ public class MakeSnail {
 			}
 			// 방향전환
 			direction++;
-			// 방향이 오른쪽 에서 아래로 , 왼쪽에서 위로 변할때 size는 1씩 감소한다.
+			// 방향이 위에서 오른쪽으로 , 아래에서 왼쪽으로 변할때 size는 1씩 감소한다.
 			if (direction == RIGHT || direction == LEFT) size--;
 			// 방향이 한바퀴 돌았으면 다시 UP
 			if (direction > 3) direction = UP;
