@@ -1,9 +1,8 @@
 # Snail
 달팽이 배열 만들기
 ```java
-package com.kodonho.java.basic;
 
-public class BasicMain {
+public class MakeSnail {
 
 	public static void main(String args[]) {
 		printSnail(makeSnail(5));
@@ -11,32 +10,39 @@ public class BasicMain {
 		printSnail(makeSnail(7));
 	}
 
+	final static int UP = 0;
+	final static int RIGHT = 1;
+	final static int DOWN = 2;
+	final static int LEFT = 3;
+	
 	// 1. 4개의 방향을 사용하는 달팽이 알고리즘
 	public static int[][] drawSnail(int count) {
 		int[][] result = new int[count][count];
 		int x = -1;   // 배열의 가로축
 		int y = 0;    // 배열의 세로축
-		int direction = 0; // 0 오른쪽, 1아래, 2왼쪽, 3위
+		int direction = UP; // 0 오른쪽, 1아래, 2왼쪽, 3위
 		int number = 1; // 출력되는 숫자값
 		
 		int size = count; // 매번 반복되어야하는 가로 세로 크기
 
 		while (size > 0) {
 			for (int i = 0; i < size; i++) {
-				if(direction==0) x++;
-				else if(direction==1) y++;
-				else if(direction==2) x--;
-				else if(direction==3) y--;
+				// 해당 방향만 index 값이 변한다
+				if(direction==UP) { x++; }
+				else if(direction==RIGHT) { y++; }
+				else if(direction==DOWN) { x--; }
+				else if(direction==LEFT) { y--; }
+				
+				// 배열에 값을 넣는다
 				result[y][x] = number;
 				number++;
 			}
 			// 방향이 오른쪽 에서 아래로 , 왼쪽에서 위로 변할때 size는 1씩 감소한다.
-			if (direction == 0 || direction == 2) size--;
+			if (direction == UP || direction == DOWN) size--;
 			// 방향전환
 			direction++;
 			if (direction > 3) direction = 0;
 		}
-		
 		return result;
 	}
 	
@@ -79,5 +85,6 @@ public class BasicMain {
 		System.out.println("");
 	}
 }
+
 
 ```
