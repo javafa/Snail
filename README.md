@@ -18,7 +18,7 @@ public class MakeSnail {
 	// 1. 4개의 방향을 사용하는 달팽이 알고리즘
 	public static int[][] drawSnail(int count) {
 		int[][] result = new int[count][count];
-		int x = -1;   // 배열의 가로축
+		int x = -1;   // 배열의 가로축 : -1 부터 시작해야 아래 로직에서 조건문을 하나 제외할 수 있다
 		int y = 0;    // 배열의 세로축
 		int direction = UP; // 0 오른쪽, 1아래, 2왼쪽, 3위
 		int number = 1; // 출력되는 숫자값
@@ -41,7 +41,7 @@ public class MakeSnail {
 			if (direction == UP || direction == DOWN) size--;
 			// 방향전환
 			direction++;
-			if (direction > 3) direction = 0;
+			if (direction > 3) direction = UP;
 		}
 		return result;
 	}
