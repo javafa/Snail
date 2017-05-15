@@ -25,7 +25,8 @@ public class MakeSnail {
 		
 		int size = count; // 매번 반복되어야하는 가로 세로 크기
 
-		while (size > 0) {
+		// 숫자가 가로*세로 보다 작거나 같을때까지 반복
+		while (number <= count*count) {
 			for (int i = 0; i < size; i++) {
 				// 해당 방향만 index 값이 변한다
 				if(direction==UP) { x++; }
