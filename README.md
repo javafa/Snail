@@ -29,11 +29,12 @@ public class MakeSnail {
 		while (number <= count*count) {
 			for (int i = 0; i < size; i++) {
 				// 해당 방향만 index 값이 변한다
-				if(direction==UP) { x++; }
-				else if(direction==RIGHT) { y++; }
-				else if(direction==DOWN) { x--; }
-				else if(direction==LEFT) { y--; }
-				
+				switch(direction){ 
+					case UP: x++; break;
+					case RIGHT: y++; break;
+					case DOWN:  x--; break;
+					case LEFT: y--; break;
+				}
 				// 배열에 값을 넣는다
 				result[y][x] = number;
 				number++;
