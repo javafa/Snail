@@ -39,10 +39,11 @@ public class MakeSnail {
 				result[y][x] = number;
 				number++;
 			}
-			// 방향이 오른쪽 에서 아래로 , 왼쪽에서 위로 변할때 size는 1씩 감소한다.
-			if (direction == UP || direction == DOWN) size--;
 			// 방향전환
 			direction++;
+			// 방향이 오른쪽 에서 아래로 , 왼쪽에서 위로 변할때 size는 1씩 감소한다.
+			if (direction == RIGHT || direction == LEFT) size--;
+			// 방향이 한바퀴 돌았으면 다시 UP
 			if (direction > 3) direction = UP;
 		}
 		return result;
